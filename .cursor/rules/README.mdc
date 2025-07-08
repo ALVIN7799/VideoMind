@@ -1,0 +1,114 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Cursor Rules Guide
+
+This directory contains comprehensive Cursor Rules for the Director project. These rules help Cursor understand the project structure, development patterns, and best practices.
+
+## Available Rules
+
+### 1. [Project Overview](mdc:.cursor/rules/project-overview.mdc)
+**Purpose**: High-level understanding of the Director project
+- Complete project structure and architecture
+- Key components and their relationships
+- Development workflow overview
+- Entry points and configuration files
+
+### 2. [Backend Development](mdc:.cursor/rules/backend-development.mdc)
+**Purpose**: Python/FastAPI backend development guidelines
+- Agent development patterns
+- API development with FastAPI
+- Database integration (PostgreSQL/SQLite)
+- LLM provider integration
+- External tool integration
+- Testing and development commands
+
+### 3. [Frontend Development](mdc:.cursor/rules/frontend-development.mdc)
+**Purpose**: Vue.js frontend development guidelines
+- Vue 3 with TypeScript patterns
+- Tailwind CSS styling guidelines
+- Component development best practices
+- Build and deployment processes
+- Performance optimization techniques
+
+### 4. [Agent Patterns](mdc:.cursor/rules/agent-patterns.mdc)
+**Purpose**: Detailed agent development and architecture
+- Agent base classes and inheritance
+- Creating new agents step-by-step
+- Agent categories and examples
+- Inter-agent communication
+- Session and state management
+- Performance considerations
+
+### 5. [Database and API Patterns](mdc:.cursor/rules/database-api-patterns.mdc)
+**Purpose**: Database operations and API development
+- Multi-database support (PostgreSQL/SQLite)
+- FastAPI route patterns
+- WebSocket integration
+- Error handling and security
+- Authentication and authorization
+- Performance optimization
+
+### 6. [Development and Deployment](mdc:.cursor/rules/development-deployment.mdc)
+**Purpose**: Development workflow and deployment strategies
+- Local development setup
+- Docker containerization
+- Testing strategies and frameworks
+- Code quality standards
+- Production deployment
+- Monitoring and maintenance
+
+## How to Use These Rules
+
+### For New Developers
+1. Start with **Project Overview** to understand the architecture
+2. Read **Backend Development** if working on Python/FastAPI
+3. Read **Frontend Development** if working on Vue.js
+4. Dive into **Agent Patterns** when creating or modifying agents
+
+### For Specific Tasks
+- **Creating a new agent**: Use Agent Patterns guide
+- **Adding API endpoints**: Reference Database and API Patterns
+- **Frontend components**: Follow Frontend Development guide
+- **Deployment issues**: Check Development and Deployment guide
+
+### For Code Reviews
+- Ensure code follows the patterns outlined in relevant rules
+- Check that new agents follow the Agent Patterns guidelines
+- Verify API endpoints follow the Database and API Patterns
+- Confirm frontend code follows Vue.js best practices
+
+## Quick Reference
+
+### Key File Locations
+- **Backend entry**: [backend/director/entrypoint/api/server.py](mdc:backend/director/entrypoint/api/server.py)
+- **Frontend entry**: [frontend/src/main.js](mdc:frontend/src/main.js)
+- **Agent base**: [backend/director/agents/base.py](mdc:backend/director/agents/base.py)
+- **Database abstraction**: [backend/director/db/base.py](mdc:backend/director/db/base.py)
+- **Docker compose**: [docker-compose.yml](mdc:docker-compose.yml)
+
+### Development Commands
+```bash
+# Backend development
+cd backend && make run
+
+# Frontend development  
+cd frontend && npm run dev
+
+# Documentation
+mkdocs serve
+
+# Docker development
+docker-compose up --build
+```
+
+### Common Patterns
+- **All agents** inherit from [base.py](mdc:backend/director/agents/base.py)
+- **Database operations** use the abstraction layer
+- **API routes** follow FastAPI patterns with Pydantic models
+- **Frontend components** use Vue 3 Composition API
+- **Styling** uses Tailwind CSS utility classes
+
+

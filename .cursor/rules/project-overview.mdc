@@ -1,0 +1,76 @@
+---
+description: 
+globs: 
+alwaysApply: false
+---
+# Director Project Overview
+
+Director is a full-stack application for AI-powered video processing and content creation with agent-based architecture.
+
+## Project Structure
+
+### Backend (`/backend/`)
+- **Framework**: Python with FastAPI
+- **Main package**: [director/](mdc:backend/director)
+- **Entry point**: [backend/director/entrypoint/api/server.py](mdc:backend/director/entrypoint/api/server.py)
+- **Configuration**: [backend/pyproject.toml](mdc:backend/pyproject.toml) and [backend/requirements.txt](mdc:backend/requirements.txt)
+
+### Frontend (`/frontend/`)
+- **Framework**: Vue.js 3 with TypeScript
+- **Styling**: Tailwind CSS
+- **Entry point**: [frontend/src/main.js](mdc:frontend/src/main.js)
+- **Main component**: [frontend/src/App.vue](mdc:frontend/src/App.vue)
+- **Configuration**: [frontend/package.json](mdc:frontend/package.json)
+
+### Documentation (`/docs/`)
+- **Tool**: MkDocs with configuration in [mkdocs.yml](mdc:mkdocs.yml)
+- **Structure**: Organized by components (agents, core, database, etc.)
+
+## Key Architectural Components
+
+### 1. Agents (`/backend/director/agents/`)
+- **Base class**: [backend/director/agents/base.py](mdc:backend/director/agents/base.py)
+- **Specialized agents** for video processing, audio generation, transcription, etc.
+- **Local video agent**: [backend/director/agents/local_video_agent.py](mdc:backend/director/agents/local_video_agent.py)
+
+### 2. Core System (`/backend/director/core/`)
+- **Session management**: [backend/director/core/session.py](mdc:backend/director/core/session.py)
+- **Reasoning engine**: [backend/director/core/reasoning.py](mdc:backend/director/core/reasoning.py)
+
+### 3. Database Layer (`/backend/director/db/`)
+- **Dual support**: PostgreSQL and SQLite
+- **PostgreSQL**: [backend/director/db/postgres/](mdc:backend/director/db/postgres)
+- **SQLite**: [backend/director/db/sqlite/](mdc:backend/director/db/sqlite)
+
+### 4. LLM Integration (`/backend/director/llm/`)
+- **Multiple providers**: OpenAI, Anthropic, Google AI
+- **Base interface**: [backend/director/llm/base.py](mdc:backend/director/llm/base.py)
+
+### 5. External Tools (`/backend/director/tools/`)
+- **Video processing**: Replicate, Kling, FAL
+- **Audio**: ElevenLabs, Beatoven
+- **AI services**: Stability AI, VideoHub
+- **Local processing**: [backend/director/tools/local_video_processor.py](mdc:backend/director/tools/local_video_processor.py)
+
+## Development Workflow
+
+### Local Development
+- Backend: `cd backend && make run` or use [backend/Makefile](mdc:backend/Makefile)
+- Frontend: `cd frontend && npm run dev`
+- Documentation: `mkdocs serve`
+
+### Docker Support
+- **Backend**: [backend/Dockerfile](mdc:backend/Dockerfile)
+- **Frontend**: [frontend/Dockerfile](mdc:frontend/Dockerfile)
+- **Orchestration**: [docker-compose.yml](mdc:docker-compose.yml)
+
+### Deployment
+- **Railway**: Configuration in [render.yaml](mdc:render.yaml)
+- **Setup script**: [setup.sh](mdc:setup.sh)
+
+## Key Files for Getting Started
+1. [README.md](mdc:README.md) - Main project documentation
+2. [backend/README.md](mdc:backend/README.md) - Backend specific setup
+3. [frontend/README.md](mdc:frontend/README.md) - Frontend specific setup
+4. [backend/LOCAL_VIDEO_GUIDE.md](mdc:backend/LOCAL_VIDEO_GUIDE.md) - Local video processing guide
+
